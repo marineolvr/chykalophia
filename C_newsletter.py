@@ -18,15 +18,20 @@ email_input = driver.find_element_by_xpath('//*[@id="ff_3_email"]')
 email_input.clear()
 email_input.send_keys("marineolvera07@gmail.com")
 
-#clicking on the button send to subscribe to the newsletter
-email_btn = driver.find_element_by_xpath('//*[@id="fluentform_3"]/div[2]/button/img')
-email_btn.click()
 
 
-#webdriverwait
+
+#newsletter
 email_btn = driver.find_element_by_xpath('//*[@id="ff_3_email"]')
 email_btn.click()
-wd_wait = WebDriverWait(driver, 10)
-email_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ff_3_email"]')))
+#wd_wait = WebDriverWait(driver, 10)
+#email_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="ff_3_email"]')))
+
+element = driver.find_element_by_xpath('//*[@id="ff_3_email"]')
+if element.is_displayed():
+    print("Passed")
+else:
+    print("Failed")
+
 
 driver.quit()
