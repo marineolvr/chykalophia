@@ -15,12 +15,15 @@ driver.maximize_window()
 instagram_btn = driver.find_element_by_xpath('//div[2]//span[4]/a')
 instagram_btn.click()
 
-#webdriverwait
-instagram_btn = driver.find_element_by_xpath('//div[2]//span[4]/a')
-instagram_btn.click()
-wd_wait = WebDriverWait(driver, 10)
-instagram_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//div[2]//span[4]/a")))
+#wd_wait = WebDriverWait(driver, 10)
+#instagram_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//div[2]//span[4]/a")))
+
+element = driver.find_element_by_xpath('//div[2]//span[4]/a')
+if element.is_displayed():
+    print("Passed")
+else:
+    print("Failed")
+
 
 driver.quit()
-
 
