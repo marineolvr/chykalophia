@@ -15,10 +15,14 @@ driver.maximize_window()
 privacy_btn = driver.find_element_by_xpath('//div[2]//section[2]//p/a[1]')
 privacy_btn.click()
 
-#webdriverwait
-privacy_btn = driver.find_element_by_xpath('//div[2]//section[2]//p/a[1]')
-privacy_btn.click()
-wd_wait = WebDriverWait(driver, 10)
-privacy_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//div[2]//section[2]//p/a[1]")))
+#wd_wait = WebDriverWait(driver, 10)
+#privacy_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//div[2]//section[2]//p/a[1]")))
+
+element = driver.find_element_by_xpath('//div[2]//section[2]//p/a[1]')
+if element.is_displayed():
+    print("Passed")
+else:
+    print("Failed")
+
 
 driver.quit()
