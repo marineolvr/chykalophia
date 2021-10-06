@@ -15,10 +15,13 @@ driver.maximize_window()
 git_btn = driver.find_element_by_xpath('//section[2]//span[6]/a')
 git_btn.click()
 
-#webdriverwait
-git_btn = driver.find_element_by_xpath('//section[2]//span[6]/a')
-git_btn.click()
-wd_wait = WebDriverWait(driver, 10)
-git_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//section[2]//span[6]/a")))
+#wd_wait = WebDriverWait(driver, 10)
+#git_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//section[2]//span[6]/a")))
+
+element = driver.find_element_by_xpath('//section[2]//span[6]/a')
+if element.is_displayed():
+    print("Passed")
+else:
+    print("Failed")
 
 driver.quit()
