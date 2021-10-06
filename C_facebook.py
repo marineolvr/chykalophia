@@ -14,12 +14,13 @@ driver.maximize_window()
 
 #clicking on the button to go to facebook
 facebook_btn = driver.find_element_by_xpath('//div[2]//span[2]/a')
-facebook_btn.click()
+#facebook_btn.click()
+#facebook_btn = WebDriverWait.until(EC.visibility_of_element_located(By.XPATH('//div[2]//span[2]/a')))
 
-#webdriverwait
-facebook_btn = driver.find_element_by_xpath('//div[2]//span[2]/a')
-facebook_btn.click()
-wd_wait = WebDriverWait(driver, 10)
-facebook_btn = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//div[2]//span[2]/a")))
+element = driver.find_element_by_xpath('//div[2]//span[2]/a')
+if element.is_displayed():
+    print("Passed")
+else:
+    print("Failed")
 
 driver.quit()
